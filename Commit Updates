@@ -1,0 +1,15 @@
+////////////////////////////////////////////////////////
+//// CHECK HERE FOR NEWS ON CHANGES MADE IN COMMITS ////
+////////////////////////////////////////////////////////
+
+FIRST COMMIT (release date - 6/3/2021)
+
+KEY CHANGES MADE:
+1. Resolves issue with `PendoManager` being an 'unresolved identifier' within the Second and Third ViewControllers
+2. Set Event Buttons 1-4 to have `nil` parameters
+3. Set a pre-fabricated URL Scheme, all that is needed is to simply drop in the URL Scheme provided by app.pendo.io setup. No need to create a new URL Scheme.
+4. Set new 2.8+ functions of anon visitor > switchVisitor()
+
+////////////////////////////////////////////////////////
+//// CHECK HERE FOR NEWS ON CHANGES MADE IN COMMITS ////
+////////////////////////////////////////////////////////
