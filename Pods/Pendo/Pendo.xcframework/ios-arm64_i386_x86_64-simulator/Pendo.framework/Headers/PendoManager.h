@@ -11,15 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The SDK will post the following notifications on initialization.
+ *  The SDK will post the following notification when a new session has completed initialization and the session is in progress.
  *  The notifications are posted to the main thread
- *
- *  This notification is sent out after the SDK has successfully initialized
+ *  This notification is sent out after the SDK session has successfully initialized
  */
 extern NSString *const kPNDDidSuccessfullyInitializeSDKNotification;
 
 /**
- *  This notification is sent out when an error occurs during initialization of the SDK
+ *  This notification is sent out when an error occurs during initialization of the SDK session.
  */
 extern NSString *const kPNDErrorInitializeSDKNotification;
 
@@ -66,13 +65,6 @@ extern NSString *const kPNDErrorInitializeSDKNotification;
 
 /**
  *  Call this method on the sharedManger with your application key.
- *
- *  @param appKey The app key for your account
- */
-- (void)setup:(NSString *_Nonnull)appKey;
-
-/**
- *  Call this method on the sharedManger with your application key.
  *  Use this API in case the account and visitor data are not yet known, and they will be known at a later point of the app's lifecycle. In order to update the account and visitor data, call the API: [PendoManager switchVisitor:accountId:visitorData:accountData];
  *
  *  @warning This API is NOT an anonymous API. this should only be used if visitor data will be known at a later point.
@@ -80,6 +72,22 @@ extern NSString *const kPNDErrorInitializeSDKNotification;
  *  @param options additional options for internal use only, default nil
  */
 - (void)initSDKWithoutVisitor:(NSString *)appKey withOptions:(PendoOptions *_Nullable)options DEPRECATED_MSG_ATTRIBUTE("Please follow the SDK guideline by using the new APIs as documented in Pendo API documentation https://support.pendo.io/hc/en-us/articles/360055603992-IOS-Developer-API-Documentation");
+
+/**
+ *  Call this method on the sharedManger with your application key.
+ *
+ *  @param appKey The app key for your account
+ *  @param initParams (nullable) Extra initialize parameters (e.g. account id, visitor id...).
+ */
+- (void)initSDK:(NSString *_Nonnull)appKey initParams:(PendoInitParams *_Nullable)initParams DEPRECATED_MSG_ATTRIBUTE("Please follow the SDK guideline by using the new APIs as documented in Pendo API documentation https://support.pendo.io/hc/en-us/articles/360055603992-IOS-Developer-API-Documentation");
+
+/**
+ *  Call this method on the sharedManger with your application key.
+ *  Setup the Pendo SDK. [PendoManager startSession:accountId:visitorData:accountData]; when you would like to start the session (anonymous or identified)
+ *
+ *  @param appKey The app key for your account
+ */
+- (void)setup:(NSString *_Nonnull)appKey;
 
 /**
  *  Call this method on the sharedManger with your application key.
@@ -91,16 +99,8 @@ extern NSString *const kPNDErrorInitializeSDKNotification;
 - (void)setup:(NSString *)appKey withOptions:(PendoOptions *_Nullable)options;
 
 /**
- *  Call this method on the sharedManger with your application key.
- *
- *  @param appKey The app key for your account
- *  @param initParams (nullable) Extra initialize parameters (e.g. account id, visitor id...).
- */
-- (void)initSDK:(NSString *_Nonnull)appKey initParams:(PendoInitParams *_Nullable)initParams DEPRECATED_MSG_ATTRIBUTE("Please follow the SDK guideline by using the new APIs as documented in Pendo API documentation https://support.pendo.io/hc/en-us/articles/360055603992-IOS-Developer-API-Documentation");
-
-/**
  *  Called from your app delegate when launched from a deep link containing an Pendo Mobile pairing URL
- *  @warning This method should always be called after initSDK: with your application key
+ *  @warning Must be called <b>after</b> the SDK was initialized.
  *  @param url The pairing URL
  */
 - (void)initWithUrl:(NSURL *_Nonnull)url;
@@ -112,12 +112,6 @@ extern NSString *const kPNDErrorInitializeSDKNotification;
 - (void)endSession;
 
 #pragma mark - Visitor
-
-/**
- * Must be called <b>after</b> the SDK was initialized.
- * @brief Clears the current visitor.
- */
-- (void)clearVisitor;
 
 /**
  * Must be called <b>after</b> the SDK was initialized.
@@ -136,9 +130,16 @@ extern NSString *const kPNDErrorInitializeSDKNotification;
 
 /**
  * Must be called <b>after</b> the SDK was initialized.
+ * @brief Clears the current visitor.
+ */
+- (void)clearVisitor;
+
+/**
+ * Must be called <b>after</b> the SDK was initialized.
  *
  * @brief start a session with a new visitor.
  * In case a session was already started before, end the previous one and start a new one.
+ * To start as session with an anonymous visitor pass nil as the visitorId.
  *
  * @param visitorId The visitor's ID.
  * @param accountId The account's ID.
@@ -149,10 +150,12 @@ extern NSString *const kPNDErrorInitializeSDKNotification;
             accountId:(NSString *_Nullable)accountId
           visitorData:(NSDictionary *_Nullable)visitorData
           accountData:(NSDictionary *_Nullable)accountData;
+
 /**
  * Set a visitor data value.
  * This data is used by Pendo Mobile for creating audiences or reporting analytics.
  * For instance you might want to provide data on the visitor's age or if the visitor is logged into a service.
+ * The data is accumulated and maintained between sessions.
  *
  *  @param visitorData additional visitor data.
  */
@@ -162,10 +165,93 @@ extern NSString *const kPNDErrorInitializeSDKNotification;
  * Set account data value for a given data name.
  * This data is used by Pendo Mobile for creating audiences or reporting analytics.
  * For instance you might want to provide data on the account's subscription or if the account is active or not.
+ * The data is accumulated and maintained between sessions.
  *
  * @param accountData the account data.
 */
 - (void)setAccountData:(NSDictionary *_Nonnull)accountData;
+
+#pragma mark - Visitor using JWT
+
+/**
+ * Must be called <b>after</b> the SDK was initialized.
+ *
+ * @brief start a session with a new visitor. Pass a JWT generated by your server-side and signed using the shared private.
+ *  In case a session was already started before, end the previous one and start a new one.
+ *  The expected JWT body format: (visitor properties are optional)
+ *
+ *  Identified visitor:
+ *
+ *  {
+ *    "visitor" : {
+ *       "id" : "visitor name",
+ *       "visitorProperty1" : "visitorValue1",
+ *       "visitorProperty2" : "visitorValue2"
+ *    },
+ *    "account" : {
+ *       "id" : "account name",
+ *       "accountProperty1" : "accountValue1",
+ *       "accountProperty2" : "accountValue2"
+ *    }
+ *  }
+ *
+ *  Anonymous visitor:
+ *
+ *  {
+ *    "visitor" : {
+ *       "id" : "",
+ *       "visitorProperty1" : "visitorValue1",
+ *       "visitorProperty2" : "visitorValue2"
+ *    },
+ *    "account" : {
+ *       "id" : ""
+ *    }
+ *  }
+ *
+ * @param jwt The jwt including the session visitor and account data.
+ * @param signingKeyName The key name used to sign the jwt.
+ */
+- (void)startSession:(NSString *)jwt signingKeyName:(NSString *)signingKeyName;
+
+/**
+ * Set a visitor data value.
+ * This data is used by Pendo Mobile for creating audiences or reporting analytics.
+ * For instance you might want to provide data on the visitor's age or if the visitor is logged into a service.
+ * The data is accumulated and maintained between sessions.
+ * The expected JWT body format:
+ *
+ *  {
+ *    "visitor" : {
+ *       "id" : "visitor name",
+ *       "visitorProperty1" : "visitorValue1",
+ *       "visitorProperty2" : "visitorValue2"
+ *    }
+ *  }
+ *
+ * @param jwt The jwt including the session visitor data.
+ * @param signingKeyName The key name used to sign the jwt.
+ */
+- (void)setVisitorData:(NSString *)jwt signingKeyName:(NSString *)signingKeyName;
+
+/**
+ * Set account data value for a given data name.
+ * This data is used by Pendo Mobile for creating audiences or reporting analytics.
+ * For instance you might want to provide data on the account's subscription or if the account is active or not.
+ * The data is accumulated and maintained between sessions.
+ * The expected JWT body format:
+ *
+ *  {
+ *    "account" : {
+ *       "id" : "account name",
+ *       "accountProperty1" : "accountValue1",
+ *       "accountProperty2" : "accountValue2"
+ *    }
+ *  }
+ *
+ * @param jwt The jwt including the session visitor data.
+ * @param signingKeyName The key name used to sign the jwt.
+ */
+- (void)setAccountData:(NSString *)jwt signingKeyName:(NSString *)signingKeyName;
 
 #pragma mark - Track
 

@@ -15,6 +15,9 @@
 /** @brief environment type. */
 @property (nonatomic, nullable) NSString *environmentName;
 
+/** @brief return all guides content in initModel. */
+@property (nonatomic) BOOL withGuideContent;
+
 - (instancetype _Nonnull)init NS_DESIGNATED_INITIALIZER;
 
 @end

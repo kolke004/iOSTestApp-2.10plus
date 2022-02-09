@@ -398,11 +398,11 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
-  - Pendo (2.12.0.4373)
+  - Pendo (2.13.1.5118)
   - PromisesObjC (1.2.12)
-  - SDWebImage (5.12.1):
-    - SDWebImage/Core (= 5.12.1)
-  - SDWebImage/Core (5.12.1)
+  - SDWebImage (5.12.3):
+    - SDWebImage/Core (= 5.12.3)
+  - SDWebImage/Core (5.12.3)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -410,7 +410,7 @@ DEPENDENCIES:
   - Firebase/Core
   - FirebaseUI
   - FirebaseUI/Email
-  - Pendo (~> 2.12.0)
+  - Pendo (~> 2.13.0)
 
 SPEC REPOS:
   trunk:
@@ -469,10 +469,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
-  Pendo: 277aee88293315704cdddc3f05ea5a412ac85560
+  Pendo: 41d505b9de7d4d61af15cb034ae108f0022bb80a
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
-  SDWebImage: 4dc3e42d9ec0c1028b960a33ac6b637bb432207b
+  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
 
-PODFILE CHECKSUM: 57f03f9fbb6237864297d7cf09ac9f8f3b04f402
+PODFILE CHECKSUM: 673c81c9802d80c348211665504d7e9fa4ffd32d
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.2

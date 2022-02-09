@@ -14,11 +14,11 @@
 		</data>
 		<key>Headers/PendoManager.h</key>
 		<data>
-		8nO9DVmIKpX+N5mcZ5322dY4pHc=
+		QyRJmDwJPiLa8MVagB7FwdHhsxQ=
 		</data>
 		<key>Headers/PendoOptions.h</key>
 		<data>
-		uvVXIjV1F55ZBUZKhOASWaXkg/w=
+		0EQQiAQHseRvnaEcNQ5Ehm7ztUs=
 		</data>
 		<key>Headers/RNInternal.h</key>
 		<data>
@@ -26,7 +26,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		c8IMVa9QuoL00e+rFqxP8Hrx12k=
+		bCf72WcXhGNQzVcDfFLbTYZc6L4=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>PendoSDKResources.bundle/Assets.car</key>
 		<data>
-		5FsXDiL3skHFw4WzVQGFYV58uvU=
+		FRqEpfv5P21cqC9UGMsGjVa+TkI=
 		</data>
 		<key>PendoSDKResources.bundle/Info.plist</key>
 		<data>
-		gmfNygH/X0LT3DWCff4nyvmQY9Y=
+		SE4h0kRjHEfs1odln7sheaa2daw=
 		</data>
 		<key>PendoSDKResources.bundle/PNDYTPlayerView-iframe.html</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeDirectory</key>
 		<data>
-		4hfC+9EkpOH+ZlLAJPl1dr5+zWY=
+		OOoDzUXhR7DcCe1DXVD16tR7rNY=
 		</data>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -58,11 +58,11 @@
 		</data>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		KMdxkGebmbGbtb0V0y9YPV1j2XQ=
+		D8Z8i/W6I2IEZ9Yc5PZzMiofDEE=
 		</data>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeResources</key>
 		<data>
-		erTubzxvoPJymG0gBNuBKClR11c=
+		xB5cNR85nae+RxN9Ng9Mrg8dvb4=
 		</data>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeSignature</key>
 		<data>
@@ -78,7 +78,7 @@
 		</data>
 		<key>PendoSDKResources.bundle/native-bridge.js</key>
 		<data>
-		oL61QmVAOxafGFBetnjA1BxCil4=
+		kavh0te9I87mEU3FgwJ1jYRGteg=
 		</data>
 		<key>PendoSDKResources.bundle/socket.io.2.2.0.js</key>
 		<data>
@@ -113,22 +113,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8nO9DVmIKpX+N5mcZ5322dY4pHc=
+			QyRJmDwJPiLa8MVagB7FwdHhsxQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Wcc59PggXsnbAtB2Ru9aU2ZrI/Ct0hEqxVxC1IlDXH0=
+			Mn3nZJkxdZgtLuSQPkBJHuMuIyRzhAEJZPP05QMWG9E=
 			</data>
 		</dict>
 		<key>Headers/PendoOptions.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uvVXIjV1F55ZBUZKhOASWaXkg/w=
+			0EQQiAQHseRvnaEcNQ5Ehm7ztUs=
 			</data>
 			<key>hash2</key>
 			<data>
-			CKvECd+R9r+KBJiZSfU2gpTYj/SwXJ7llSNl5ktJc1A=
+			nvpKlKUGsGltdXkVs6p44pg8ri3Z82Xnyzibj5N82Xo=
 			</data>
 		</dict>
 		<key>Headers/RNInternal.h</key>
@@ -168,22 +168,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			5FsXDiL3skHFw4WzVQGFYV58uvU=
+			FRqEpfv5P21cqC9UGMsGjVa+TkI=
 			</data>
 			<key>hash2</key>
 			<data>
-			HzbVdzaVt+zH+0sdUfCsdHU6HGwu9cUElJ/cYzQKFk4=
+			ax5k2TDslOTQos5KX3rYXlgAndhqrGTcP2JAUB1vAwo=
 			</data>
 		</dict>
 		<key>PendoSDKResources.bundle/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gmfNygH/X0LT3DWCff4nyvmQY9Y=
+			SE4h0kRjHEfs1odln7sheaa2daw=
 			</data>
 			<key>hash2</key>
 			<data>
-			oLf4uuMT52Zi1lRhECUVqqUstuvdYmBvTWrFc+DvRWo=
+			WfxSaNv9ifNv96hYewHbWYbvnfRw2fJjYZ1TSdBmDWI=
 			</data>
 		</dict>
 		<key>PendoSDKResources.bundle/PNDYTPlayerView-iframe.html</key>
@@ -201,11 +201,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			4hfC+9EkpOH+ZlLAJPl1dr5+zWY=
+			OOoDzUXhR7DcCe1DXVD16tR7rNY=
 			</data>
 			<key>hash2</key>
 			<data>
-			RSQiQhKUIlrY17NYsUjdR0JXncG8SpOxS9d8F58CI5o=
+			yz2QIKoDUsPrJrvGE4nS4ze5vTMinuTCjTjr03em6mo=
 			</data>
 		</dict>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeRequirements</key>
@@ -223,22 +223,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KMdxkGebmbGbtb0V0y9YPV1j2XQ=
+			D8Z8i/W6I2IEZ9Yc5PZzMiofDEE=
 			</data>
 			<key>hash2</key>
 			<data>
-			vonfMeRm4GVhuIGAHIWuoeDffltTrTL0x/RrGspoT18=
+			q9WVA6WSYw2LZLIWTjMFpxsHB1yk5Se1gznsUDT78cI=
 			</data>
 		</dict>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			erTubzxvoPJymG0gBNuBKClR11c=
+			xB5cNR85nae+RxN9Ng9Mrg8dvb4=
 			</data>
 			<key>hash2</key>
 			<data>
-			qD2Y/5VZ1H61lbt0ukIF3JUzBGAP0gaYU/gf93nmhz0=
+			sQLkXqq37rqCX34I1UcXzWaeeADw/BuLBz81UakXBEI=
 			</data>
 		</dict>
 		<key>PendoSDKResources.bundle/_CodeSignature/CodeSignature</key>
@@ -278,11 +278,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oL61QmVAOxafGFBetnjA1BxCil4=
+			kavh0te9I87mEU3FgwJ1jYRGteg=
 			</data>
 			<key>hash2</key>
 			<data>
-			QUvS1Xe4cb0zFeOKImFhZpMKmg/qhzXWGr81n7x0+sk=
+			snHxhgk6zYLHJaC1pTM3b9nImuA2ajPnimLFRvumkOI=
 			</data>
 		</dict>
 		<key>PendoSDKResources.bundle/socket.io.2.2.0.js</key>

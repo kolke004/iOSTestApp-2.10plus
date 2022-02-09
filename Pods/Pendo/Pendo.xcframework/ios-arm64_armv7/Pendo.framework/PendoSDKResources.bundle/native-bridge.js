@@ -1,6 +1,6 @@
 const kGuideStepId = 'guideStepId';
 const kAdditionalInfo = 'additionalInfo';
-const kGuideActiveTime = 'guideActiveTime';
+const kDisplayDuration = 'displayDuration';
 const kPollTypes = 'pollTypes';
 
 function getFromContext(context, name) {
@@ -54,22 +54,8 @@ var findElementById = function (id) {
     return new StandIn(id);
 };
 
-function getActiveTimeGuideDismissed(context) {
-    return getFromContext(context, kGuideActiveTime);
-}
-
-function sumAllActiveTimes(activeTimes) {
-    var sum = 0;
-    for (n in activeTimes) {
-        sum += activeTimes[n].duration;
-    }
-    return sum;
-}
-
 function getGuideStepDuration(context) {
-    var activeTimes = getActiveTimeGuideDismissed(context);
-    var sum = sumAllActiveTimes(activeTimes);
-    return sum.toString();
+    return getFromContext(context, kDisplayDuration).toString();
 }
 
 function getDurationGuideDismissed(context) {
